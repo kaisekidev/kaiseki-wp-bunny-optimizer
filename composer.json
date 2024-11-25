@@ -1,0 +1,84 @@
+{
+  "name": "kaiseki/wp-bunny-optimizer",
+  "type": "library",
+  "description": "",
+  "license": "MIT",
+  "homepage": "https://github.com/kaisekidev/kaiseki-wp-bunny-optimizer",
+  "authors": [
+    {
+      "name": "Kaiseki",
+      "email": "hello@kaiseki.dev",
+      "homepage": "https://www.kaiseki.dev",
+      "role": "Organization"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/kaisekidev/kaiseki-wp-bunny-optimizer/issues",
+    "source": "https://github.com/kaisekidev/kaiseki-wp-bunny-optimizer"
+  },
+  "require": {
+    "php": ">=8.2",
+    "kaiseki/config": "dev-master",
+    "kaiseki/wp-hook": "dev-master",
+    "psr/container": "^1.1 || ^2.0"
+  },
+  "require-dev": {
+    "bnf/phpstan-psr-container": "^1.0",
+    "friendsofphp/php-cs-fixer": "^3.21",
+    "kaiseki/php-coding-standard": "dev-master",
+    "php-stubs/wordpress-stubs": "^6.2",
+    "phpstan/extension-installer": ">=1.3",
+    "phpstan/phpstan": ">=1.2",
+    "phpstan/phpstan-phpunit": ">=1.0",
+    "phpstan/phpstan-strict-rules": ">=1.1",
+    "phpunit/phpunit": "^9.5",
+    "roave/security-advisories": "dev-latest",
+    "szepeviktor/phpstan-wordpress": "^1.3"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "composer/installers": true
+    },
+    "process-timeout": 0
+  },
+  "autoload": {
+    "psr-4": {
+      "Kaiseki\\WordPress\\BunnyOptimizer\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Kaiseki\\Test\\Functional\\WordPress\\BunnyOptimizer\\": "tests/functional",
+      "Kaiseki\\Test\\Unit\\WordPress\\BunnyOptimizer\\": "tests/unit"
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*"
+      ]
+    }
+  ],
+  "extra": {
+    "wordpress-install-dir": "vendor/wordpress/wordpress",
+    "installer-paths": {
+      "vendor/wordpress/plugins/{$name}/": ["type:wordpress-plugin"]
+    }
+  },
+  "minimum-stability": "stable",
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@phpstan",
+      "@phpunit"
+    ],
+    "cs-check": "php-cs-fixer fix --dry-run",
+    "cs-fix": "php-cs-fixer fix --allow-risky=yes",
+    "phpstan": "phpstan analyse --memory-limit 1G",
+    "phpunit": "phpunit"
+  }
+}
