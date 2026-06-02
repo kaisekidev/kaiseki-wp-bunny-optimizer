@@ -23,7 +23,7 @@ final class ConfigProvider
             'dependencies' => [
                 'aliases' => [],
                 'factories' => [
-                    BunnyOptimizer::class => BunnyOpt::class,
+                    BunnyOptimizer::class => BunnyOptimizerFactory::class,
                 ],
             ],
         ];
