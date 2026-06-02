@@ -13,6 +13,8 @@ final class BunnyOptimizerFactory
     {
         $config = Config::fromContainer($container);
 
-        return new BunnyOptimizer();
+        return new BunnyOptimizer(
+            $config->string('bunny_optimizer.cdn_host', 'cdn.woda.dev'),
+        );
     }
 }

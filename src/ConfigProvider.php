@@ -14,6 +14,7 @@ final class ConfigProvider
         return [
             'bunny_optimizer' => [
                 'feature_notice' => 'wp-bunny-optimizer',
+                'cdn_host' => 'cdn.woda.dev',
             ],
             'hook' => [
                 'provider' => [
@@ -23,7 +24,7 @@ final class ConfigProvider
             'dependencies' => [
                 'aliases' => [],
                 'factories' => [
-                    BunnyOptimizer::class => BunnyOpt::class,
+                    BunnyOptimizer::class => BunnyOptimizerFactory::class,
                 ],
             ],
         ];
