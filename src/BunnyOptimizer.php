@@ -45,6 +45,11 @@ final class BunnyOptimizer implements HookProviderInterface
     public const CONTRAST = 'contrast';
     public const AUTO_OPTIMIZE = 'auto_optimize';
 
+    public function __construct(
+        private readonly string $cdnHost = 'cdn.woda.dev',
+    ) {
+    }
+
     public function addHooks(): void
     {
         add_filter('wp_get_attachment_image_attributes', [$this, 'filterAttributes'], 10, 2);
@@ -135,7 +140,7 @@ final class BunnyOptimizer implements HookProviderInterface
             if (!is_string($host)) {
                 continue;
             }
-            $size['url'] = str_replace($host, 'cdn.woda.dev', $url);
+            $size['url'] = str_replace($host, $this->cdnHost, $url);
             $sizes[$name] = $size;
         }
 

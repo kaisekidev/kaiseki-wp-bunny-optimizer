@@ -20,6 +20,8 @@ First tagged release.
 - Modernized the dev toolchain (PHPStan 2, PHPUnit 11 schema, composer-require-checker 4); now depends
   on `kaiseki/php-coding-standard: ^1.0` with the shared PHPStan config; `kaiseki/config` and
   `kaiseki/wp-hook` pinned to `^2.0`. CI now runs via the reusable workflow in `kaisekidev/.github`.
+- The CDN host (previously hard-coded to `cdn.woda.dev`) is now configurable via the
+  `bunny_optimizer.cdn_host` config key, defaulting to `cdn.woda.dev` (no behaviour change unless set).
 
 ### Fixed
 

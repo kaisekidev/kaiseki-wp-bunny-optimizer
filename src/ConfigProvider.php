@@ -14,6 +14,7 @@ final class ConfigProvider
         return [
             'bunny_optimizer' => [
                 'feature_notice' => 'wp-bunny-optimizer',
+                'cdn_host' => 'cdn.woda.dev',
             ],
             'hook' => [
                 'provider' => [
